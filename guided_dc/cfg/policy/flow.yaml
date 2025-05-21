@@ -1,0 +1,9 @@
+defaults:
+  - model: unet
+  - _self_
+
+_target_: guided_dc.policy.flow.FlowModel
+schedule: linear
+device: ${device}
+horizon_steps: ${task.horizon_steps}
+action_dim: ${task.action_dim}

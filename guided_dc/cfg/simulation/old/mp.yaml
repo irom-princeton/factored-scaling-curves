@@ -1,0 +1,75 @@
+robot:
+  pos:
+    value_range: # When distribution is normal, the range is [mean, std]
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+    operation: "additive"
+    distribution: "uniform"   # normal, uniform
+    # schedule: "constant"  # turn on noise after `schedule_steps` num steps
+    # schedule_steps: 5000
+    # setup_only: True
+  rot:
+    value_range:
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+    operation: "additive"
+    distribution: "uniform"
+
+manip_obj:
+  pos:
+    value_range:
+      - [-0.0, 0.0]
+      - [-0.0, 0.0]
+      - [0.0, 0.0]
+    operation: "additive"
+    distribution: "uniform"
+  rot:
+    value_range:
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+    operation: "absolute"
+    distribution: "uniform"
+
+goal_obj:
+  pos:
+    value_range:
+      - [0.0, 0.0]
+      - [-0.0, 0.0]
+      - [0.0, 0.0]
+    operation: "additive"
+    distribution: "uniform"
+  rot:
+    value_range:
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+    operation: "absolute"
+    distribution: "uniform"
+
+camera:
+  pos:
+    value_range:
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+      - [0.0, 0.0]
+    operation: "additive"
+    distribution: "uniform"
+  rot:
+    value_range:
+      - [-0.1, 0.1]
+      - [-0.1, 0.1]
+      - [-0.1, 0.1]
+    operation: "additive"
+    distribution: "uniform"
+
+lighting:
+  ambient:
+    value_range:
+      - [0.3, 1]
+      - [0.3, 1]
+      - [0.3, 1]
+    operation: "absolute"
+    distribution: "uniform"

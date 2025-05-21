@@ -1,0 +1,53 @@
+defaults:
+  - policy: diffusion
+  - task: default
+  - simulation: tomato_plate
+  - _self_
+
+hydra:
+  run:
+    dir: ${logdir}
+
+_target_: guided_dc.agent.TrainAgent
+
+job_id: 0
+gpu_id: 0
+seed: 42
+device: cuda
+
+name: ${policy.model.obs_encoder.img_model_name}_${task.dataset_name}
+logdir: ${oc.env:GDC_LOG_DIR}/${task.env}/${job_id}_${name}
+
+# wandb:
+#   entity: ${oc.env:GDC_WANDB_ENTITY}
+#   project: ${task.env}
+#   run: ${job_id}_${name}
+
+train:
+  n_epochs: 800
+  learning_rate: 1e-4
+  weight_decay: 1e-6
+  lr_scheduler:
+    first_cycle_steps: ${train.n_epochs}
+    warmup_steps: 10
+    min_lr: 1e-5
+  epoch_start_ema: 5
+  update_ema_freq: 5
+  save_model_freq: 50
+  # dataloader
+  store_gpu: False
+  num_workers: 4
+  persistent_workers: True
+  batch_size: null
+  # validation
+  train_split: 1.0
+  val_batch_size: ${train.batch_size}
+  val_freq: ${train.save_model_freq}
+  additional_save_epochs: [80]
+  eval_epoch: [100]
+  # sampler
+  use_weighted_sampler: False
+  stop_criteria: num_gradient_steps
+
+ema:
+  decay: 0.995

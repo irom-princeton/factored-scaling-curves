@@ -1,0 +1,63 @@
+defaults:
+  - _self_
+
+env: tomato_plate
+
+cond_steps: 1
+img_cond_steps: 1
+num_views: 2
+obs_dim: 8
+action_dim: 8
+horizon_steps: 16
+img_size: [3, 192, 192]
+use_delta_actions: False
+dataset_type: guided_dc.agent.BaseSequenceDataset
+dataset_name: null
+val_dataset_name: null
+anomaly_knn: 5
+do_anomaly: False
+r_nom: 0.6
+
+train_dataset:
+  _target_: ${task.dataset_type}
+  use_img: True
+  dataset_path: ${oc.env:GDC_DATA_DIR}/processed_data/${task.dataset_name}/dataset.npz
+  horizon_steps: ${task.horizon_steps}
+  max_n_episodes: 2000
+  cond_steps: ${task.cond_steps}
+  img_cond_steps: ${task.img_cond_steps}
+  device: ${device}
+  use_delta_actions: ${task.use_delta_actions}
+  store_gpu: ${train.store_gpu}
+  logdir: ${logdir}
+  dataset_norm_stats_path: ${oc.env:GDC_DATA_DIR}/processed_data/${task.dataset_name}/norm.npz
+  use_raw: False
+  get_anomaly_dataset_flag: ${task.do_anomaly}
+  # sim_traj_num: 0
+  # filter_first_state: True
+
+val_dataset:
+  _target_: ${task.dataset_type}
+  use_img: True
+  dataset_path: ${oc.env:GDC_DATA_DIR}/processed_data/${task.val_dataset_name}/dataset.npz
+  horizon_steps: ${task.horizon_steps}
+  max_n_episodes: 500
+  cond_steps: ${task.cond_steps}
+  img_cond_steps: ${task.img_cond_steps}
+  device: ${device}
+  use_delta_actions: ${task.use_delta_actions}
+  store_gpu: ${train.store_gpu}
+  logdir: ${logdir}
+  use_raw: False
+
+nominal_dataset:
+  _target_: guided_dc.agent.AnomalyNominalDataset
+  dataset_path: ${oc.env:GDC_DATA_DIR}/processed_data/${task.dataset_name}/anomaly_dataset.npz
+
+anomaly_dataset:
+  _target_: guided_dc.agent.ImageDataset
+  images_path: ${oc.env:GDC_DATA_DIR}/anomaly_dataset/eval_init_images
+
+nominal_val_dataset:
+  _target_: guided_dc.agent.AnomalyNominalDataset
+  dataset_path: ${oc.env:GDC_DATA_DIR}/processed_data/${task.val_dataset_name}/anomaly_dataset.npz

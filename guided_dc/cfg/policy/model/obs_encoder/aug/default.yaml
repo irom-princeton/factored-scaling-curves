@@ -1,0 +1,31 @@
+- _target_: guided_dc.policy.vision.aug.Resize
+  size: ${task.img_size}
+
+- _target_: guided_dc.policy.vision.aug.CropRandomizer
+  input_shape: ${task.img_size}
+  crop_height_pct: 0.92   # for vit, should ensure the crop size is multiple of patch size
+  crop_width_pct: 0.92
+  num_crops: 1
+  pos_enc: false
+
+- _target_: guided_dc.policy.vision.aug.ColorJitter
+  # brightness: 0.1
+  # contrast: 0.1
+  # saturation: 0.1
+  # hue: 0.12
+  brightness: 0.2
+  contrast: 0.2
+  saturation: 0.2
+  hue: 0.12
+  p: 0.8
+
+# - _target_: guided_dc.policy.vision.aug.GaussianBlur
+#   kernel_size: 5
+#   sigma: [0.1, 2]
+#   p: 0.5
+
+- _target_: guided_dc.policy.vision.aug.Normalize
+
+# - _target_: guided_dc.policy.vision.aug.RandomRotation
+#   degrees: 5
+#   p: 0.8

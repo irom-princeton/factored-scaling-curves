@@ -1,0 +1,146 @@
+defaults:
+  - _self_
+
+env_id: Drawer-v1
+obs_mode: none
+sim_backend: auto
+reward_mode: null
+num_envs: 3
+control_mode: 'pd_ee_delta_pose'
+render_mode: human
+shader: default
+record_dir: './videos'
+pause: false
+quiet: true
+seed: null
+rnd: 1
+
+base:
+  init: &base-init
+    table:
+      thickness: 0.05  # in meters
+      width: 1    # in meters
+      length: 2   # in meters
+      leg_length: 0.75
+      leg_thickness: 0.05
+
+    robot:
+      init_pose:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      init_rotation: [0, 0, 0]
+      robot_init_qpos_noise: 0.02
+
+    simulation:
+      gravity: 9.81  # m/s^2
+      timestep: 0.01  # seconds
+      max_steps: 1000
+
+    physics:
+      static_friction: 1
+      dynamic_friction: 1
+      restitution: 1  # Bounciness
+
+  rand: &base-rand
+    table:
+      thickness: 0.05  # in meters
+      width: 2.0    # in meters
+      length: 4.0   # in meters
+      leg_length: 0.5
+      leg_thickness: 0.05
+
+    robot:
+      pos_range:
+        x_min: -0
+        x_max: 0
+        y_min: -0
+        y_max: 0
+
+    camera:
+      rad_range: 0.1308996938995747
+
+    lighting:
+      ambient_min: 0.2
+      ambient_max: 1.
+
+PickAndPlace-v1:
+
+  init:
+    <<: *base-init
+    object:
+      manip_obj: 'mug'
+      goal_obj: 'bowl'
+
+    goal:
+      raw: 0
+      yaw: 0
+
+  rand:
+    <<: *base-rand
+    object:
+      pos_scale: 0.2
+      pos_offset: 0.1
+      manip_obj_delta_zrot_max: 1.57
+      manip_obj_delta_zrot_min: 0
+      goal_obj_delta_zrot_max: 1.57
+      goal_obj_delta_zrot_min: 0
+
+    goal:
+      low_percentage_x: 1.0
+      high_percentage_x: 6
+      low_percentage_y: -5
+      high_percentage_y: 5
+
+Drawer-v1:
+
+  init:
+    <<: *base-init
+    object:
+      manip_obj: 'drawer'
+
+    goal:
+      raw: 0
+      yaw: 0
+
+
+  rand:
+    <<: *base-rand
+    object:
+      pos_scale: 0.2
+      pos_offset: 0.1
+      manip_obj_delta_zrot_max: 0
+      manip_obj_delta_zrot_min: 0
+
+    goal:
+      low_percentage_x: 0
+      high_percentage_x: 0
+      low_percentage_y: 0.0
+      high_percentage_y: 0.0
+
+PushObject-v1:
+
+  init:
+    <<: *base-init
+    object:
+      manip_obj: 'apple'
+
+    goal:
+      raw: 0
+      yaw: ${pi_div:2}
+
+  rand:
+    <<: *base-rand
+    object:
+      pos_scale: 0.2
+      pos_offset: 0.1
+      manip_obj_delta_zrot_max: 0
+      manip_obj_delta_zrot_min: 3.14
+      goal_obj_delta_zrot_max: 1.57
+      goal_obj_delta_zrot_min: 0
+
+    goal:
+      low_percentage_x: 0.8
+      high_percentage_x: 1.1
+      low_percentage_y: 0.8
+      high_percentage_y: 1.1

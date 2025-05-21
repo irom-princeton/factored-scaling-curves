@@ -1,0 +1,30 @@
+_target_: submit_dp_jobs.DPSimPegSpatialAblation
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+
+run_method: main
+cfg_name: sim_peg_insertion_dp_spatial_group_ablation
+
+x_strat: group
+sample_sim_strat: uniform
+sim_data_nums: [0,40,80,120,140,160,220,370,620]
+num_train_points: 4
+num_per_instance: 100
+num_instances: 4
+k_factor: 2
+data_ready: false
+train_ready: false
+run_baseline_equal: true
+run_baseline_remix: false
+dry_run: false
+combos:
+  - [tt, lt]
+  - [cp, dis]
+  - [bg, th]
+  - [op, dq]
+
+# slope_num_factors: [1,2,3]
+slope_num_factors: [4,8]

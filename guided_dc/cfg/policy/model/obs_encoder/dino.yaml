@@ -1,0 +1,19 @@
+defaults:
+  - aug: default
+  - feature_aggregation: cls_token
+  - _self_
+
+_target_: guided_dc.policy.obs_encoder.MultiviewObsEncoder
+img_model_name: vit_base_patch14_dinov2.lvd142m
+img_cond_steps: ${task.img_cond_steps}
+num_views: ${task.num_views}
+img_size: ${task.img_size}
+share_img_model: False
+obs_dim: ${eval:'${task.obs_dim} * ${task.cond_steps}'}
+
+# timm only
+pretrained: false
+frozen: false
+use_lora: false
+lora_rank: 8
+drop_path_rate: 0.0

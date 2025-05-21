@@ -1,0 +1,15 @@
+defaults:
+  - model: unet
+  - _self_
+
+_target_: guided_dc.policy.diffusion.DiffusionModel
+device: ${device}
+horizon_steps: ${task.horizon_steps}
+action_dim: ${task.action_dim}
+denoising_steps: 100
+# Eval
+use_ddim: True
+ddim_steps: 10
+model_path: null
+
+

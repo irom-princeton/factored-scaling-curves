@@ -1,0 +1,54 @@
+# Ignore .pyc files
+*.pyc
+
+# Ignore __pycache__ folders
+__pycache__/
+*.egg-info
+outputs/
+videos/
+.vscode/
+wandb/
+log/
+logs/
+result/
+ckpts/
+log/
+.ruff_cache/
+test_files/
+
+*.h5
+*.npz
+*.out
+*.err
+*.png
+*.pt
+*.pickle
+*.sh
+*.env
+*.npy
+*.mp4
+# *.glb
+# *.obj
+# *.mtl
+results/
+
+compare_sim_real_predictions.py
+plot.ipynb
+train.log
+
+!guided_dc/assets/**/*.png
+!set_path.sh
+!get_sim_curves.sh
+!eval_pick_place.sh
+!eval_peg_pull.sh
+!get_best_ckpt.sh
+!process_data.sh
+
+no_release/
+notebooks/
+data/processed_data
+data/raw_data
+!data/**/*.png
+!data/**/*.npy
+
+!train.sh

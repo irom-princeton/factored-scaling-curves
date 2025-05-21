@@ -1,0 +1,157 @@
+background:
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/floor/light_brown_wood.jpg
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/table/top-view-fabric-texture-black.jpg
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/table/top-view-white-tablecloth.jpg
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/blue-flower.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/Bg_pattern.png
+  # - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/acorns-seamless-pattern.png
+  # - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/Digital_graphic_pattern_29_1.png
+  # - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/flowers-seamless-pattern.png
+  # - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/flowers-vintage-pattern-background.png
+  # - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/image-16367210531Iv.png
+
+
+distractor:
+  -
+    - type: custom
+      obj_name: pear
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/pear.glb
+      scale: [0.05, 0.05, 0.05]
+
+  -
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/lettuce.glb
+      obj_name: lettuce
+      scale: [0.3, 0.3, 0.3]
+
+  -
+    - type: custom
+      obj_name: bowl
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/bowl.glb
+      scale: [0.01, 0.01, 0.01]
+
+
+  - # could have multiple distractors at once
+    - type: custom
+      obj_name: pear
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/pear.glb
+      scale: [0.05, 0.05, 0.05]
+    - type: custom
+      obj_name: bowl
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/bowl.glb
+      scale: [0.01, 0.01, 0.01]
+
+  -
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/grape.glb
+      obj_name: grape
+      scale: [0.01, 0.01, 0.01]
+    - type: custom
+      obj_name: apple
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/apple.glb
+      scale: [0.01, 0.01, 0.01]
+
+
+  -
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/egg.glb
+      obj_name: egg
+      scale: [0.04, 0.04, 0.04]
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/eggplant.glb
+      obj_name: eggplant
+      scale: [0.5, 0.5, 0.5]
+
+  -
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/lettuce.glb
+      obj_name: lettuce
+      scale: [0.3, 0.3, 0.3]
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/pumpkin.glb
+      obj_name: pumpkin
+      scale: [0.1, 0.1, 0.1]
+
+
+  -
+    - type: custom
+      obj_name: carrot
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/carrot.glb
+      scale: [0.015, 0.015, 0.015]
+    - type: custom
+      obj_name: cup
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/cup.glb
+      scale: [0.03, 0.03, 0.03]
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/egg.glb
+      obj_name: egg
+      scale: [0.04, 0.04, 0.04]
+  
+
+  -
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/hammer.glb
+      obj_name: hammer
+      scale: [0.5, 0.5, 0.5]
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/banana.glb
+      obj_name: banana
+      scale: [0.001, 0.001, 0.001]
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/eggplant.glb
+      obj_name: eggplant
+      scale: [0.5, 0.5, 0.5]
+
+
+  -
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/pumpkin.glb
+      obj_name: pumpkin
+      scale: [0.1, 0.1, 0.1]
+    - type: custom
+      obj_name: cup
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/cup.glb
+      scale: [0.03, 0.03, 0.03]
+    - type: custom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/banana.glb
+      obj_name: banana
+      scale: [0.001, 0.001, 0.001]
+  
+
+
+table_texture:
+  - ${oc.env:GDC_ASSETS_DIR}/table/linen-fabric-textured-striped-background.jpg
+  - ${oc.env:GDC_ASSETS_DIR}/table/top-view-fabric-texture.jpg
+  - ${oc.env:GDC_ASSETS_DIR}/table/top-view-white-tablecloth.jpg
+  - ${oc.env:GDC_ASSETS_DIR}/table/top-view-fabric-texture-black.jpg
+  - ${oc.env:GDC_ASSETS_DIR}/table/wooden.jpg
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/acorns-seamless-pattern.png
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/blue-flower.png
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/Bg_pattern.png
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/acorns-seamless-pattern.png
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/Digital_graphic_pattern_29_1.png
+
+
+directional:
+  - [6,0,0]
+  - [0,6,0]
+  - [0,0,6]
+  - [6,6,0]
+  - [0,6,6]
+  # - [3,0,3]
+  # - [3,2,0]
+  # - [2,0,3]
+  # - [0,3,2]
+  # - [3,1,2]
+
+base:
+  background:
+    - model_file: ${oc.env:GDC_ASSETS_DIR}/background/background_full.obj
+      pos: [0.04, -0.39, -0.105]
+      rot: [0, 0, 0]
+  ambient:
+    - [0.3, 0.3, 0.3]
+  directional:
+    - [[0, 0.4, -1],[0.6, 0.6, 0.6]]
+  table_texture:
+    - ${oc.env:GDC_ASSETS_DIR}/table/material_0.png

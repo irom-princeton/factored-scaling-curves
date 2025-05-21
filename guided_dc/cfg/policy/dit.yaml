@@ -1,0 +1,14 @@
+defaults:
+  - model: transformer
+  - _self_
+
+_target_: guided_dc.policy.diffusion.DiffusionTransformer
+device: ${device}
+horizon_steps: ${task.horizon_steps}
+action_dim: ${task.action_dim}
+denoising_steps: 100
+model_path: null
+ddim_steps: 8
+
+
+

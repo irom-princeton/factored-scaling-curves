@@ -1,0 +1,6 @@
+[submodule "guided_dc/maniskill"]
+	path = guided_dc/maniskill
+	url = https://github.com/lihzha/ManiSkill.git
+[submodule "pi-zero"]
+	path = pi-zero
+	url = https://github.com/lihzha/pi-zero.git

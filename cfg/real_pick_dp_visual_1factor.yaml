@@ -1,0 +1,27 @@
+_target_: submit_dp_jobs.DPReal
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+
+run_method: weighted_slope
+cfg_name: real_pick_dp_visual_1factor
+
+x_strat: 1factor
+sample_sim_strat: uniform
+sim_data_nums: [0,20,40,60,80,100]
+num_train_points: 4
+num_per_instance: None
+num_instances: None
+k_factor: 1
+data_ready: false
+train_ready: false
+run_baseline_equal: true
+run_baseline_remix: false
+dry_run: false
+combos: null
+
+get_baseline_worst_res: false
+
+slope_num_factors: [1,2,3]

@@ -1,0 +1,25 @@
+_target_: submit_dp_jobs.DPSimBase
+
+hydra:
+  run:
+    dir: .
+  output_subdir: null
+
+run_method: main
+cfg_name: sim_pick_dp_visual_1factor
+
+x_strat: 1factor
+sample_sim_strat: uniform
+sim_data_nums: [0,10,20,30,50,120]
+num_train_points: 4
+num_per_instance: 30
+num_instances: 4
+k_factor: 1
+data_ready: false
+train_ready: false
+run_baseline_equal: true
+run_baseline_remix: false
+dry_run: false
+combos: null
+
+slope_num_factors: [1,3,5]

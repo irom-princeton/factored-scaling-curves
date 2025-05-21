@@ -1,0 +1,100 @@
+defaults:
+  - _self_
+
+env_id: PushObject-v1
+obs_mode: rgb
+sim_backend: auto
+reward_mode: null
+num_envs: 3
+control_mode: pd_joint_pos
+render_mode: rgb_array
+shader: default
+record_dir: './videos'
+pause: false
+quiet: true
+seed: null
+rnd: 1
+replay_with_controller: true
+smooth_iter: 10
+data_iter: 1
+save_video: True
+rrt_iter: 100
+traj_path: videos/PushObject-v1_numenvs4_datarnd2_seedNone_20241020_224956.h5
+traj_idx: 3
+
+
+base:
+  init: &base-init
+    table:
+      thickness: 0.05  # in meters
+      width: 2.0    # in meters
+      length: 4.0   # in meters
+      leg_length: 0.5
+      leg_thickness: 0.05
+
+    robot:
+      init_pose:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+      init_rotation: [0, 0, 0]
+      robot_init_qpos_noise: 0.0
+
+    simulation:
+      gravity: 9.81  # m/s^2
+      timestep: 0.01  # seconds
+      max_steps: 1000
+
+    physics:
+      static_friction: 1
+      dynamic_friction: 1
+      restitution: 1  # Bounciness
+
+  rand: &base-rand
+    table:
+      thickness: 0.05  # in meters
+      width: 2.0    # in meters
+      length: 4.0   # in meters
+      leg_length: 0.5
+      leg_thickness: 0.05
+
+    robot:
+      pos_range:
+        x_min: -0
+        x_max: 0
+        y_min: -0
+        y_max: 0
+
+    camera:
+      rad_range: 0
+
+    lighting:
+      ambient_min: 0.3
+      ambient_max: 1.
+
+PushObject-v1:
+
+  init:
+    <<: *base-init
+    object:
+      manip_obj: 'apple'
+
+    goal:
+      raw: 0
+      yaw: ${pi_div:2}
+
+  rand:
+    <<: *base-rand
+    object:
+      pos_scale: 0.2
+      pos_offset: 0.1
+      manip_obj_delta_zrot_max: 0
+      manip_obj_delta_zrot_min: 3.14
+      goal_obj_delta_zrot_max: 1.57
+      goal_obj_delta_zrot_min: 0
+
+    goal:
+      low_percentage_x: 1.1
+      high_percentage_x: 1.4
+      low_percentage_y: 0.8
+      high_percentage_y: 1.1

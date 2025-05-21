@@ -1,0 +1,13 @@
+defaults:
+  - obs_encoder: resnet
+  - _self_
+
+_target_: guided_dc.policy.model.unet.VisionUnet1D
+diffusion_step_embed_dim: 128
+dim: 128
+dim_mults: [1, 2, 4]
+kernel_size: 5
+n_groups: 8
+cond_predict_scale: True
+smaller_encoder: True
+action_dim: ${task.action_dim}

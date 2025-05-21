@@ -1,0 +1,22 @@
+
+defaults:
+  - obs_encoder: resnet
+  - override obs_encoder/feature_aggregation: to_token
+  - _self_
+
+_target_: guided_dc.policy.model.dit.DiTNoiseNet
+diffusion_step_embed_dim: 256
+horizon_steps: ${task.horizon_steps}
+action_dim: ${task.action_dim}
+num_blocks: 6
+dropout: 0.1
+dim_feedforward: 2048
+nhead: 8
+activation: gelu
+
+obs_encoder:
+  obs_strat: add_token
+  post_proc_dropout: 0.1
+  feat_norm: null
+  token_dim: null
+  cond_mlp_dims: null

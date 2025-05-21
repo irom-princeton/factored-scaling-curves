@@ -1,0 +1,23 @@
+defaults:
+  - aug: default
+  - feature_aggregation: cls_token
+  - _self_
+
+_target_: guided_dc.policy.obs_encoder.MultiviewObsEncoder
+img_model_name: custom_vit
+img_cond_steps: ${task.img_cond_steps}
+num_views: ${task.num_views}
+img_size: ${task.img_size}
+share_img_model: False
+obs_dim: ${eval:'${task.obs_dim} * ${task.cond_steps}'}
+
+# custom vit only
+patch_size: 8
+depth: 3
+embed_dim: 512
+num_heads: 8
+embed_style: embed2
+embed_norm: 0
+share_embed_head: False
+use_large_patch: True
+use_cls_token: False

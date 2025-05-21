@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "guided-dc"
+version = "0.1.0"
+description = "Guided data collection."
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+
+dependencies = [
+    "numpy>=2.0.0",
+    "omegaconf",
+    "hydra-core",
+    "moviepy",
+    "matplotlib",
+    "timm",
+    "peft",
+    "wandb",
+    "einops",
+    "av",
+    "GPUtil",
+    "open3d",
+    "pydantic",
+    "pyglet",
+    "pre-commit>=4.0.1",
+    "objaverse",
+    "diffusers[torch]",
+    "transformers",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["data", "logs", "log", "wandb"]
+
+[tool.wheel]
+exclude = []
+
+[tool.ruff]
+line-length = 88
+target-version = "py310"
+exclude = ["calculation.ipynb", "guided_dc/policy/diffusion.py", "guided_dc/policy/dit.py"]
+lint.select = ["A", "B", "E", "F", "I", "RUF", "W"]
+lint.ignore = ["E203", "E501", "B006", "B026", "B905"]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = ["E402", "F401", "F403"]
+
+[tool.pyright]
+exclude = ["data", "logs", "log", "wandb", "videos", "__pycache__"]
+reportArgumentType = "none"
+reportAttributeAccessIssue = "none"
+reportIncompatibleMethodOverride = "none"
+reportAssignmentType = "none"
+reportOptionalMemberAccess = "none"

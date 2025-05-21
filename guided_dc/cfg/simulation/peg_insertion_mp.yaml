@@ -1,0 +1,161 @@
+defaults:
+  - randomization: train_sim_peg
+  - _self_
+
+pause: false
+quiet: true
+seed: null
+
+env_id: CustomPegInsertionSide-v1
+num_envs: 30
+robot_uids: panda_wristcam_peg # panda, (panda, panda)
+obs_mode: rgb
+render_mode: sensors # rgb_array, human, sensors, all
+reward_mode: null
+control_mode: pd_joint_pos  # 'pd_joint_delta_pos', 'pd_joint_pos', 'pd_ee_delta_pos', 'pd_ee_delta_pose', 'pd_ee_pose', 'pd_joint_target_delta_pos', 'pd_ee_target_delta_pos', 'pd_ee_target_delta_pose', 'pd_joint_vel', 'pd_joint_pos_vel', 'pd_joint_delta_pos_vel'
+sim_backend: gpu
+render_backend: gpu
+shader: default  # minimal, default, rt
+enable_shadow: False
+
+eval_base_manip_poses_file: ${oc.env:GDC_DATA_DIR}/eval_poses/eval_base_manip_poses_file_peg_60.npy
+eval_base_goal_poses_file: ${oc.env:GDC_DATA_DIR}/eval_poses/eval_base_goal_poses_file_peg_60.npy
+eval_factor_manip_poses_file: ${oc.env:GDC_DATA_DIR}/eval_poses/eval_factor_manip_poses_file_peg_600.npy
+eval_factor_goal_poses_file: ${oc.env:GDC_DATA_DIR}/eval_poses/eval_factor_goal_poses_file_peg_600.npy
+eval_base_delta_qpos_file: ${oc.env:GDC_DATA_DIR}/eval_poses/eval_base_delta_qpos_file_peg_60.npy
+eval_factor_delta_qpos_file: ${oc.env:GDC_DATA_DIR}/eval_poses/eval_factor_delta_qpos_file_peg_600.npy
+
+scene_builder:
+  floor_texture_file: ${oc.env:GDC_ASSETS_DIR}/floor/silver_wood.jpg
+  robot_init_qpos: [0, -0.62831853, 0, -2.51327412, 0, 1.88495559, 0, 0.04, 0.04]
+  robot_init_pos: [-0.547, -0.527, -0.143]
+  robot_init_rot: [0, 0, "${pi_op:div,4}"]
+  robot_init_qpos_noise: 0.0
+  table:
+    material_type: file   # color, file
+    model_file: ${oc.env:GDC_ASSETS_DIR}/table/table_with_textured_top.obj
+    material_file: ${oc.env:GDC_ASSETS_DIR}/table/material_0.png
+    material_color: [0.,0., 0., 1.]
+    table_height: 0.0
+    # for building table
+    thickness: 0.05  # in meters
+    width: 0.715   # in meters
+    length: 1.4   # in meters
+    leg_length: 0.75
+    leg_thickness: 0.05
+  background:
+    model_file: ${oc.env:GDC_ASSETS_DIR}/background/background_full.obj
+    pos: [0.04, -0.39, -0.105]
+    rot: [0, 0, 0]
+
+camera:
+  wrist_camera:
+    eye:
+      - [-1, 1, 0.5]
+    target:
+      - [0,0, 0.]
+    use_pose: true
+    pose:
+      - [0.01211676, -0.11117108 , 0.01738205,-0.33205392,  0.61986709 , 0.63578568,  0.31824762]
+    width: 640   # 424
+    height: 480
+    # fov: ${pi_op:mul,5/12}
+    near: 0.01
+    far: 100
+    intrinsic:
+      - [399.6717176213311, 0.0, 323.41963099735204]
+      - [0.0, 399.2506352516846, 242.72558105302346]
+      - [0.0, 0.0, 1.0]
+  sensor:
+    eye:
+      - [-1, 1, 0.5]
+    target:
+      - [0,0, 0.]
+    use_pose: true
+    pose:
+      # - [-0.7615, 0.2644, 0.588, 0.9, 0.075, 0.37, -0.217]  # original
+      # - [-0.1, 0.67, 0.588, 0.61867, 0.2298, 0.2616, -0.704]  # facing -y
+      - [-0.5, 0.67, 0.588, 0.746, 0.277, 0.21, -0.567]
+    width: 640
+    height: 480
+    # fov: ${pi_op:mul,35/180}
+    near: 0.01
+    far: 100
+    intrinsic:
+      # - [650, 0, 319.5]
+      # - [0, 650, 239.5]
+      # - [0, 0, 1]
+      - [627.262761, 0, 311.587005]    # after calibration
+      - [0, 626.225944, 243.079601]
+      - [0, 0, 1]
+  viewer:
+    eye:
+      - [-1, 1, 0.5]
+    target:
+      - [0,0, 0.]
+    use_pose: false
+    pose:
+      - [0,0,0,1,0,0,0]
+    fov: ${pi_op:div,2}
+    width: 1920
+    height: 1080
+    near: 0.01
+    far: 100
+
+  human_render:
+    eye:
+      - [-1, 1, 0.5]
+    target:
+      - [0,0, 0.]
+    use_pose: false
+    pose:
+      - [0,0,0,1,0,0,0]
+    fov: ${pi_op:mul,35/180}
+    width: 1024
+    height: 1024
+    near: 0.01
+    far: 100
+
+manip_obj:   #TODO: enable different objects to different subscenes
+  type: custom # custom, ai2thor
+  filepath: ${oc.env:GDC_ASSETS_DIR}/objects/tomato.glb
+  pose: [-0.3, 0.1, 0, -1.57265, -0.0464526,  3.0965] # for 40.h5
+  scale: [0.8,0.8,0.8]
+  physics:
+    static_friction: 1
+    dynamic_friction: 1
+    restitution: 1  # Bounciness
+  # visuals:
+  #   base_color: [0.75, 0.1, 0.1, 1.0]
+    # metallic: 0.0
+    # roughness: 0.1
+    # emission: [0., 0., 0., 0.]
+
+goal_obj:
+  type: custom # custom, ai2thor
+  filepath: ${oc.env:GDC_ASSETS_DIR}/objects/plate.glb
+  # obj_name: plate
+  pose: [-0.5,0.025,0.01,1.569,2.9,-0.001066]
+  scale: [0.1,0.08,0.1]
+  physics:
+    static_friction: 1
+    dynamic_friction: 1
+    restitution: 1  # Bounciness
+  # visuals:
+    # base_color: [0.75, 0.75, 0.75, 1.0]
+    # base_color: [0,0,0,1]
+    # metallic: 1.0
+    # roughness: 0.1
+    # emission: [0., 0., 0., 0.]
+
+lighting:
+  ambient: [0.3, 0.3, 0.3]
+
+record:
+  output_dir: './videos/peg_insertion'
+  save_video: True
+  save_on_reset: True
+  info_on_video: False
+  save_trajectory: False
+  record_env_state: False
+  trajectory_name: null

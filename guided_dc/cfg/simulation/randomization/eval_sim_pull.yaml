@@ -1,0 +1,157 @@
+background:
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/light_wood_v3.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/metal.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/pick-flower.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/pink-plaster.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/seamless-pattern-006.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/snowflakes-green-background.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/Spring-Pattern.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/sterne-hintergrund-gelb-blau.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/StoneWall13.png
+  - model_file: ${oc.env:GDC_ASSETS_DIR}/use_textures/weather-seamless-pattern.png
+
+distractor:
+  # # Single-object groups (3)
+  -
+    - type: custom
+      obj_name: spoon
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/spoon.glb
+      scale: [0.05, 0.05, 0.05]
+
+  -
+    - type: custom
+      obj_name: teddy_bear
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/teddy_bear.glb
+      scale: [0.05, 0.05, 0.05]
+
+  -
+    - type: custom
+      obj_name: bottle
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/bottle.glb
+      scale: [0.03, 0.03, 0.03]
+
+  # Two-object groups (4)
+  -
+    - type: custom
+      obj_name: knife
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/knife.glb
+      scale: [0.02, 0.02, 0.02]
+    - type: custom
+      obj_name: tennis_ball
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/tennis_ball.glb
+      scale: [0.04, 0.04, 0.04]
+
+  -
+    - type: custom
+      obj_name: cucumber
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/cucumber.glb
+      scale: [0.0006, 0.0006, 0.0006]
+    - type: custom
+      obj_name: watermelon
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/watermelon.glb
+      scale: [0.006, 0.006, 0.006]
+
+  -
+    - type: custom
+      obj_name: potato
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/potato.glb
+      scale: [0.04, 0.04, 0.04]
+    - type: custom
+      obj_name: mushroom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/mushroom.glb
+      scale: [0.035, 0.035, 0.035]
+
+  -
+    - type: objaverse
+      obj_name: onion
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/onion.glb
+      scale: [0.003, 0.003, 0.003]
+    - type: custom
+      obj_name: broccoli
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/broccoli.glb
+      scale: [0.08, 0.08, 0.08]
+
+  # Three-object groups (3)
+  -
+    - type: custom
+      obj_name: knife
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/knife.glb
+      scale: [0.02, 0.02, 0.02]
+    - type: custom
+      obj_name: spoon
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/spoon.glb
+      scale: [0.05, 0.05, 0.05]
+    - type: custom
+      obj_name: tennis_ball
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/tennis_ball.glb
+      scale: [0.04, 0.04, 0.04]
+
+  -
+    - type: custom
+      obj_name: potato
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/potato.glb
+      scale: [0.04, 0.04, 0.04]
+    - type: custom
+      obj_name: watermelon
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/watermelon.glb
+      scale: [0.006, 0.006, 0.006]
+    - type: custom
+      obj_name: broccoli
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/broccoli.glb
+      scale: [0.08, 0.08, 0.08]
+
+  -
+    - type: custom
+      obj_name: cucumber
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/cucumber.glb
+      scale: [0.0006, 0.0006, 0.0006]
+    - type: custom
+      obj_name: mushroom
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/mushroom.glb
+      scale: [0.035, 0.035, 0.035]
+    - type: objaverse
+      obj_name: onion
+      model_file: ${oc.env:GDC_ASSETS_DIR}/objects/onion.glb
+      scale: [0.003, 0.003, 0.003]
+
+
+table_texture:
+
+  - ${oc.env:GDC_ASSETS_DIR}/table/top-view-fabric-texture.jpg
+  - ${oc.env:GDC_ASSETS_DIR}/use_textures/flowers-vintage-pattern-background.png
+  - ${oc.env:GDC_ASSETS_DIR}/use_textures/image-16367210531Iv.png
+  - ${oc.env:GDC_ASSETS_DIR}/use_textures/light_wood_v3.png
+  - ${oc.env:GDC_ASSETS_DIR}/use_textures/metal.png
+  - ${oc.env:GDC_ASSETS_DIR}/use_textures/pick-flower.png
+  - ${oc.env:GDC_ASSETS_DIR}/use_textures/pink-plaster.png
+  - ${oc.env:GDC_ASSETS_DIR}/use_textures/seamless-pattern-006.png
+  - ${oc.env:GDC_ASSETS_DIR}/use_textures/Spring-Pattern.png
+  - ${oc.env:GDC_ASSETS_DIR}/table/top-view-white-tablecloth.jpg
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/sterne-hintergrund-gelb-blau.png
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/weather-seamless-pattern.png
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/wood_light.png
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/Woodland_Camouflage.png
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/yellow-grid.png
+  # - ${oc.env:GDC_ASSETS_DIR}/use_textures/yellow-plaster.png
+
+
+directional:
+
+  - [6,0,0]
+  - [0,6,0]
+  - [0,0,6]
+  - [6,6,0]
+  - [0,6,6]
+  - [3,0,3]
+  - [3,2,0]
+  - [2,0,3]
+  - [0,3,2]
+  - [3,1,2]
+
+base:
+  ambient:
+    - [0.3, 0.3, 0.3]
+  directional:
+    - [[0, 0.4, -1],[0.6, 0.6, 0.6]]
+  table_texture:
+    - ${oc.env:GDC_ASSETS_DIR}/table/material_0.png

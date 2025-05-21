@@ -1,0 +1,4 @@
+_target_: guided_dc.policy.vision.feat_agg.AvgPool
+img_cond_steps: ${task.img_cond_steps}
+num_views: ${task.num_views}
+flatten: True

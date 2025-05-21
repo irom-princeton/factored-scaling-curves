@@ -1,0 +1,4 @@
+_target_: guided_dc.policy.vision.feat_agg.SpatialEmb
+proj_dim: 128
+prop_dim: ${eval:'${task.obs_dim} * ${task.cond_steps}'}
+dropout: 0.0
