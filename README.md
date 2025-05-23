@@ -34,9 +34,11 @@ We introduce Factored Scaling Curves (FSC), which model how policy performance s
 
 5. **(Optional) Extra back-ends**
 
-    - **OpenPI (for experiments with $\pi_0$)**: follow the instructions in
-    https://github.com/Physical-Intelligence/openpi
-
+    - **OpenPI (for experiments with $\pi_0$)** 
+    ```console
+    cd pi-zero
+    GIT_LFS_SKIP_SMUDGE=1 uv sync
+    ```
     - **Re-Mix**: see
     https://github.com/jhejna/remix
 
@@ -71,9 +73,9 @@ observation/
       └── joint_positions
 ```
 
-## Running Simulation Experiments
+## Running Experiments
 
-We use the spatial peg-insertion experiment as an example. First create the dataset via motion planning:
+We use the simulation spatial peg-insertion experiment as an example. First create the dataset via motion planning:
 ```console
 python guided_dc/envs/tasks/peg_insertion_solution.py
 ```
@@ -89,6 +91,8 @@ dry_run=True
 Use `dry_run=True` to first inspect the job commands. Omit it to submit slurm jobs. Results can be found in `results/`.
 
 After all jobs finish, inside the corresponding result folder under `results/`, run `get_train_results.sh`, which fits factored scaling curves, computes expected improvements and trains new policies based on the updated dataset. To evaluate test performance, run `get_test_results.sh` inside the same folder.
+
+For real-world tasks, ensure the data format aligns with the above instructions. Use `submit_pi0_jobs.py` to run experiments with $\pi_0$.
 
 ## Contact
 Questions? Reach out to Lihan Zha at lihanzha@princeton.edu.
